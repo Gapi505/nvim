@@ -1,1 +1,1 @@
-require("gapi")
+require("gapi-nvim-profile")

@@ -1,9 +1,8 @@
-vim.cmd.colorscheme("gruvbox-material")
-
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.scrolloff = 15
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -15,3 +14,7 @@ vim.opt.wrap = false
 
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
+
+
+vim.g.gruvbox_contrast_dark = "hard"
+vim.cmd.colorscheme("gruvbox") -- Load Gruvbox after configuration
