@@ -29,22 +29,7 @@ return {
             vim.bo.filetype = "wgsl"
         end,
         })
-        lspconfig.wgsl_analyzer.setup({
-            on_attach = function(client, bufnr)
-                if client.server_capabilities.inlayHintProvider then
-                    vim.lsp.inlay_hint.enable(bufnr, true)
-                end
-            end,
-            settings = {
-                zls = {
-                    inlayHints = {
-                        enable = true, -- Enables inlay hints globally
-                        typeHints = true, -- Show type hints
-                        parameterHints = true, -- Show parameter hints
-                    }
-                }
-            }
-        })
+        lspconfig.wgsl_analyzer.setup({})
         lspconfig.zls.setup({})
         lspconfig.pyright.setup({})
     end

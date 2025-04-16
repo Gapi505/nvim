@@ -6,7 +6,7 @@ return{
 
 		configs.setup({
 			ensure_installed = {
-				"c", "lua", "rust", "python", "vim", "vimdoc", "zig", "c", "html", "wgsl"
+				"c", "lua", "rust", "python", "vim", "vimdoc", "zig", "c", "html", "wgsl", "json", "yaml", "sql"
 			},
 			sync_install = false,
 			highlight = { enable = true },
