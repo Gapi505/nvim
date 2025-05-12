@@ -48,7 +48,7 @@ return {
 
 
     vim.g.dbs = {
-      mariadb_dev = 'mysql://root:root@127.0.0.1:3306'
+      mariadb_dev = 'mysql://root:root@172.31.0.2:3306'
     }
     vim.g.db = vim.g.dbs.mariadb_dev
 

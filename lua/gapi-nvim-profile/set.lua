@@ -15,7 +15,4 @@ vim.opt.wrap = false
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
-
-vim.g.gruvbox_contrast_dark = "hard"
-vim.cmd.colorscheme("gruvbox") -- Load Gruvbox after configuration
-
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
