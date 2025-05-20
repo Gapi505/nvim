@@ -32,8 +32,8 @@ end
 return {
   'kristijanhusak/vim-dadbod-ui',
   dependencies = {
-    { 'tpope/vim-dadbod', lazy = true },
-    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+    { 'tpope/vim-dadbod',ft = { 'sql', 'mysql', 'plsql', 'sqlite' }, lazy = true },
+    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql', 'sqlite' }, lazy = true }, -- Optional
   },
   cmd = {
     'DBUI',
@@ -48,9 +48,10 @@ return {
 
 
     vim.g.dbs = {
-      mariadb_dev = 'mysql://root:root@172.31.0.2:3306'
+      ["mariadb-dev"] = 'mysql://root:root@172.31.0.2:3306'
     }
-    vim.g.db = vim.g.dbs.mariadb_dev
+    vim.g.db = vim.g.dbs["mariadb-dev"]
+    vim.g.db_ui_save_location = '~/.local/share/nvim/db_ui' -- clean per project
 
     vim.g.db_ui_auto_execute_table_helpers = 1
     vim.g.db_ui_show_database_icon = 1
