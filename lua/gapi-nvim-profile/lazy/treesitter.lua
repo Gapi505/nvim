@@ -6,11 +6,13 @@ return{
 
 		configs.setup({
 			ensure_installed = {
-				"c", "lua", "rust", "python", "vim", "vimdoc", "zig", "c", "html", "wgsl", "json", "yaml", "sql"
+				"c", "lua", "rust", "python", "vim", "vimdoc", "zig", "c", "html", "wgsl", "json", "yaml", "sql", "wgsl"
 			},
 			sync_install = false,
 			highlight = { enable = true },
-			indent = { enable = true }
+			indent = { enable = true },
+      modules ={},
+      auto_install = true,
 		})
 	end
 }

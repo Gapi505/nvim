@@ -10,20 +10,6 @@ return {
     -- rust
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    lspconfig.rust_analyzer.setup({
-        capabilities = capabilities,
-        settings = {
-            ["rust-analyzer"] = {
-                inlayHints = {
-                    enable = true,
-                    typeHints = true,
-                    parameterHints = true,
-                    chainingHints = true,
-                }
-            }
-        }
-    })
-
     lspconfig.wgsl_analyzer.setup({ capabilities = capabilities })
     lspconfig.zls.setup({ capabilities = capabilities })
     lspconfig.pyright.setup({ capabilities = capabilities })
