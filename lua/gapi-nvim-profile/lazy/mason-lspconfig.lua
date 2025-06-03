@@ -3,11 +3,10 @@ return {
   dependencies = { 'williamboman/mason.nvim' },
   config = function()
     require('mason-lspconfig').setup({
-        ensure_installed = {'lua_ls', 'rust_analyzer', 'pyright', 'wgsl_analyzer', 'zls', 'cssls', 'jsonls', 'html', 'tailwindcss', 'sqls'}-- Add your desired servers
+        ensure_installed = {'lua_ls', 'pyright', 'wgsl_analyzer', 'zls', 'cssls', 'jsonls', 'html', 'tailwindcss', 'sqls'}-- Add your desired servers
     })
     local lspconfig = require('lspconfig')
 
-    -- rust
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     lspconfig.wgsl_analyzer.setup({ capabilities = capabilities })
@@ -24,13 +23,13 @@ return {
     })
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
-      filetypes = { "html", "css", "scss", "javascript", "typescript", "rust" },
+      filetypes = { "html", "css", "scss", "javascript", "typescript"},
       init_options = {
         userLanguages = {
-          rust = "html",
           htmx = "html",
         },
       },
     })
+    lspconfig.jsonls.setup({})
   end
 }
