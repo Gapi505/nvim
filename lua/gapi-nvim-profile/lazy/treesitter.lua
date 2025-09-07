@@ -13,6 +13,7 @@ return{
 			indent = { enable = true },
       modules ={},
       auto_install = true,
+      ignore_install = {}
 		})
 	end
 }
