@@ -22,11 +22,9 @@ return {
       },
     })
     lspconfig.tailwindcss.setup({
-      capabilities = capabilities,
       filetypes = { "html", "css", "scss", "javascript", "typescript", "rust"},
       init_options = {
         userLanguages = {
-          htmx = "html",
           rust = "html"
         },
       },
