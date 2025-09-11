@@ -1,0 +1,71 @@
+return {
+  "mason-org/mason-lspconfig.nvim",
+  opts = {},
+  dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+  },
+  config = function()
+    local mason_lspconfig = require('mason-lspconfig')
+    local lspconfig = require('lspconfig')
+
+    -- Your standard capabilities and on_attach. Define them once.
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local on_attach = function(client, bufnr)
+      -- Put your keymaps and other on_attach wizardry here
+    end
+
+    -- This is your new servers table.
+    -- The keys are server names. The values are the FULL setup tables.
+    local servers = {
+      -- For lua_ls, the custom part is the 'settings' table.
+      lua_ls = {
+        settings = {
+          Lua = {
+            diagnostics = { globals = { 'vim' } },
+            workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+          },
+        },
+      },
+
+      -- For tailwindcss, the custom part is 'filetypes' and 'init_options'.
+      -- Notice they are NOT nested inside a 'settings' table.
+      tailwindcss = {
+        filetypes = { 'rust', 'html', 'css' },
+        init_options = {
+          userLanguages = {
+            rust = 'html',
+          },
+        },
+      },
+
+      -- Add other servers here in the same pattern
+      pyright = {}, -- No custom config needed, will get defaults.
+      zls = {},
+      -- etc.
+    }
+
+    -- Now, the magic loop.
+    for server_name, server_config in pairs(servers) do
+      -- Start with a base configuration for EVERY server.
+      local base_config = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      }
+
+      -- Merge the server-specific config on top of the base config.
+      -- 'force' means server_config's keys will overwrite base_config's keys.
+      local final_config = vim.tbl_deep_extend('force', base_config, server_config)
+
+      -- Finally, set it up.
+      lspconfig[server_name].setup(final_config)
+    end
+
+    -- And here's the key from the GitHub issue.
+    -- This MUST be called AFTER you've configured everything.
+    mason_lspconfig.setup({
+      ensure_installed = vim.tbl_keys(servers),
+      automatic_setup = false, -- Renamed from automatic_enable in newer versions
+    })
+  end,
+}
