@@ -49,4 +49,14 @@ return {
       require("kanagawa").setup({})
     end
   },
+  {
+    "cpea2506/one_monokai.nvim",
+    config = function ()
+      require'one_monokai'.setup({
+        transparent = true,
+        italics = true
+      })
+    end
+  },
 }
+

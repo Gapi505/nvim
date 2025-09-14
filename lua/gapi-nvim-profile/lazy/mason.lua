@@ -10,7 +10,7 @@ return {
             require('mason-lspconfig').setup {
         ensure_installed = {"tailwindcss", "zls", "lua_ls", "pyright"},
         automatic_enable = {
-          exclude = { "rust_analyzer" }
+          exclude = { "rust_analyzer", "rust-analyzer" }
         }
       } -- Automatically configures LSP servers
 

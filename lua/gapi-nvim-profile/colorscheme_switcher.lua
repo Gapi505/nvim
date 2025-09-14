@@ -18,7 +18,7 @@ function M.apply_colorscheme()
   -- Map your filetypes to themes here.
   -- If you add a theme, make sure you've actually installed it, genius.
   local theme_map = {
-    rust = "kanagawa",
+    rust = "one_monokai",
     zig = "gruvbox",
     -- Add more mappings, e.g.,
     -- lua = "catppuccin",
@@ -39,9 +39,9 @@ function M.apply_colorscheme()
   end
 
   -- If the theme is already active, don't waste time reloading it.
-  if vim.g.colors_name == chosen_theme then
-    return
-  end
+  -- if vim.g.colors_name == chosen_theme then
+  --  return
+  -- end
 
   -- Time for some black magic.
   -- We use pcall to safely try and apply the theme.
